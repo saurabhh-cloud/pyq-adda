@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PYQ Adda – Delhi University previous year papers</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#eef1f8;--ink:#14183a;--mute:#5b6180;--card:#fff;--line:#d5daea;--acc:#c4204b;--hl:#ffd84d;--accfg:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1226;--ink:#eef0ff;--mute:#9aa1c9;--card:#181c3a;--line:#2b3162;--acc:#ff5c85;--accfg:#14183a}}
+:root[data-theme="dark"]{--bg:#0f1226;--ink:#eef0ff;--mute:#9aa1c9;--card:#181c3a;--line:#2b3162;--acc:#ff5c85;--accfg:#14183a}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 "Instrument Sans",system-ui,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header{padding:28px 0 8px;display:flex;justify-content:space-between;align-items:center}
+.logo{font:800 20px "Bricolage Grotesque",sans-serif;letter-spacing:-.02em}
+.logo b{background:var(--hl);color:#14183a;padding:0 6px;border-radius:4px}
+.tg{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:6px 14px;font:inherit;cursor:pointer}
+h1{font:800 clamp(44px,9vw,104px)/.95 "Bricolage Grotesque",sans-serif;letter-spacing:-.04em;margin:36px 0 16px}
+h1 span{background:linear-gradient(transparent 58%,var(--hl) 58% 92%,transparent 92%);color:inherit}
+:root[data-theme="dark"] h1 span,:root:not([data-theme="light"]) h1 span{color:inherit}
+.sub{max-width:560px;color:var(--mute);font-size:18px;margin:0 0 28px}
+.search{display:flex;gap:10px;background:var(--card);border:2px solid var(--ink);border-radius:16px;padding:8px 8px 8px 18px;box-shadow:6px 6px 0 var(--acc)}
+.search input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:var(--ink);font:500 18px "Instrument Sans",sans-serif}
+.search .n{align-self:center;color:var(--mute);font-size:14px;white-space:nowrap;padding-right:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 20px}
+.chip{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:7px 15px;font:500 14px "Instrument Sans",sans-serif;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip:focus-visible,.tg:focus-visible,.yr:focus-visible,.card:focus-visible,.close:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;padding-bottom:60px}
+.card{text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:16px;cursor:pointer;color:var(--ink);font:inherit;display:flex;flex-direction:column;gap:6px;min-height:104px}
+.card:hover{border-color:var(--ink)}
+.card .lv{font-size:13px;color:var(--acc);font-weight:600}
+.card .nm{font:700 18px/1.2 "Bricolage Grotesque",sans-serif;letter-spacing:-.01em}
+.card .mt{font-size:13px;color:var(--mute);margin-top:auto}
+.empty{grid-column:1/-1;padding:40px;text-align:center;color:var(--mute);border:1.5px dashed var(--line);border-radius:14px}
+dialog{border:2px solid var(--ink);border-radius:20px;padding:0;background:var(--bg);color:var(--ink);width:min(680px,94vw);max-height:90vh}
+dialog::backdrop{background:rgba(10,12,35,.6)}
+.dh{padding:22px 24px 12px;display:flex;justify-content:space-between;gap:12px}
+.dh h2{font:800 28px/1.1 "Bricolage Grotesque",sans-serif;margin:0;letter-spacing:-.02em}
+.dh p{margin:4px 0 0;color:var(--mute);font-size:14px}
+.close{border:1.5px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;width:38px;height:38px;font-size:20px;cursor:pointer;flex:none}
+.db{padding:6px 24px 24px}
+.lab{font-weight:600;font-size:14px;margin:14px 0 8px}
+.yrs{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.yr{display:block;text-align:center;text-decoration:none;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:10px 6px;font-weight:600}
+.yr:hover{background:var(--acc);color:var(--accfg);border-color:var(--acc)}
+.yr small{display:block;font-weight:400;font-size:11px;color:inherit;opacity:.7}
+.note{font-size:13px;color:var(--mute);margin-top:16px}
+footer{border-top:1.5px solid var(--line);padding:24px 0 40px;color:var(--mute);font-size:14px}
+footer a{color:var(--ink)}
+@media (prefers-reduced-motion:no-preference){h1 span{animation:hl .9s .2s both ease-out;background-size:100% 100%;background-repeat:no-repeat}@keyframes hl{from{background-size:0 100%}}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header><div class="logo">PYQ<b>Adda</b></div><button class="tg" id="tg">Theme</button></header>
+<h1>Every DU paper, <span>one place.</span></h1>
+<p class="sub">Find previous year question papers for Delhi University courses. Search your course, pick a semester and year, and open the paper. Made by a DU student, for DU students.</p>
+<div class="search"><input id="q" type="search" placeholder="Try “B.Com”, “Economics”, “LLB”…" aria-label="Search courses" autocomplete="off"><span class="n" id="cnt"></span></div>
+<div class="chips" id="chips" role="group" aria-label="Filter by level"></div>
+<main class="grid" id="grid"></main>
+</div>
+<dialog id="dlg" aria-labelledby="dt">
+<div class="dh"><div><h2 id="dt"></h2><p id="dm"></p></div><button class="close" id="cl" aria-label="Close">×</button></div>
+<div class="db"><div class="lab">Semester</div><div class="chips" id="sems" style="margin:0"></div><div class="lab">Year</div><div class="yrs" id="yrs"></div>
+<p class="note">Papers open from Delhi University's official site. Links marked “direct” go straight to a PDF.</p></div>
+</dialog>
+<footer><div class="wrap">Made by a DU student, for DU students. Unofficial project; papers belong to the University of Delhi (<a href="https://www.du.ac.in" target="_blank" rel="noopener">du.ac.in</a>). Takedown or paper request? Email <a href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a></div></footer>
+
+<script>
+// ---- DATA: add courses here. sems = number of semesters.
+const C=[];
+const add=(lv,sems,arr)=>arr.forEach(n=>C.push({n,lv,sems}));
+add("Undergraduate",6,["B.A. (Hons) English","B.A. (Hons) Hindi","B.A. (Hons) History","B.A. (Hons) Political Science","B.A. (Hons) Economics","B.A. (Hons) Sociology","B.A. (Hons) Psychology","B.A. (Hons) Philosophy","B.A. (Hons) Geography","B.A. (Hons) Journalism","B.A. Programme","B.Com (Hons)","B.Com Programme","B.Sc (Hons) Physics","B.Sc (Hons) Chemistry","B.Sc (Hons) Mathematics","B.Sc (Hons) Computer Science","B.Sc (Hons) Statistics","B.Sc (Hons) Botany","B.Sc (Hons) Zoology","B.Sc Physical Science","B.Sc Life Science","BBA (FIA)","BMS"]);
+add("Professional",8,["B.Tech","B.El.Ed"]);
+add("Law",6,["LL.B (3-year)"]);
+add("Postgraduate",4,["M.A. English","M.A. Hindi","M.A. History","M.A. Political Science","M.A. Economics","M.A. Sociology","M.Com","M.Sc Physics","M.Sc Chemistry","M.Sc Mathematics","M.Sc Computer Science","M.Sc Statistics","MBA","LL.M"]);
+// ---- Direct links are loaded from papers.json (edit that file, not this one)
+const DIRECT={};
+const YEARS=[2025,2024,2023,2022,2021,2020,2019,2018];
+const LV=["All","Undergraduate","Postgraduate","Law","Professional"];
+let lv="All",cur=null,sem=1;
+const $=id=>document.getElementById(id);
+const grid=$("grid"),q=$("q");
+
+function chips(){ $("chips").innerHTML=LV.map(l=>`<button class="chip" aria-pressed="${l===lv}" data-l="${l}">${l}</button>`).join("");}
+function list(){
+  const t=q.value.trim().toLowerCase();
+  const r=C.filter(c=>(lv==="All"||c.lv===lv)&&c.n.toLowerCase().includes(t));
+  $("cnt").textContent=r.length+" courses";
+  grid.innerHTML=r.length?r.map(c=>`<button class="card" data-n="${c.n}"><span class="lv">${c.lv}</span><span class="nm">${c.n}</span><span class="mt">${c.sems} semesters</span></button>`).join(""):`<div class="empty">No course matches “${q.value}”. Try a shorter word, like “Eco”.</div>`;
+}
+function link(c,s,y){
+  const k=`${c.n}|${s}|${y}`;
+  if(DIRECT[k])return{u:DIRECT[k],d:true};
+  const g=`site:du.ac.in ${c.n} semester ${s} question paper ${y}`;
+  return{u:"https://www.google.com/search?q="+encodeURIComponent(g),d:false};
+}
+function sems(){
+  $("sems").innerHTML=Array.from({length:cur.sems},(_,i)=>`<button class="chip" aria-pressed="${i+1===sem}" data-s="${i+1}">Sem ${i+1}</button>`).join("");
+  $("yrs").innerHTML=YEARS.map(y=>{const l=link(cur,sem,y);return`<a class="yr" href="${l.u}" target="_blank" rel="noopener">${y}<small>${l.d?"direct":"search"}</small></a>`}).join("");
+}
+function open_(n){cur=C.find(c=>c.n===n);sem=1;$("dt").textContent=cur.n;$("dm").textContent=cur.lv+" · "+cur.sems+" semesters";sems();$("dlg").showModal();}
+
+$("chips").onclick=e=>{const b=e.target.closest("[data-l]");if(b){lv=b.dataset.l;chips();list();}};
+grid.onclick=e=>{const b=e.target.closest("[data-n]");if(b)open_(b.dataset.n);};
+$("sems").onclick=e=>{const b=e.target.closest("[data-s]");if(b){sem=+b.dataset.s;sems();}};
+$("cl").onclick=()=>$("dlg").close();
+$("dlg").onclick=e=>{if(e.target===$("dlg"))$("dlg").close();};
+q.oninput=list;
+$("tg").onclick=()=>{const r=document.documentElement,d=r.dataset.theme==="dark"||(!r.dataset.theme&&matchMedia("(prefers-color-scheme:dark)").matches);r.dataset.theme=d?"light":"dark";};
+chips();list();
+fetch("papers.json").then(r=>r.json()).then(a=>{a.forEach(p=>{DIRECT[p.course+"|"+p.sem+"|"+p.year]=p.url;});}).catch(()=>{});
+</script>
+</body>
+</html>
