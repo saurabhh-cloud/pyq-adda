@@ -35,6 +35,7 @@ h1 span{background:linear-gradient(transparent 58%,var(--hl) 58% 92%,transparent
 .card .lv{font-size:13px;color:var(--acc);font-weight:600}
 .card .nm{font:700 18px/1.2 "Bricolage Grotesque",sans-serif;letter-spacing:-.01em}
 .card .mt{font-size:13px;color:var(--mute);margin-top:auto}
+.card .mt.has{color:#14183a;background:var(--hl);align-self:flex-start;padding:1px 10px;border-radius:99px;font-weight:600}
 .empty{grid-column:1/-1;padding:40px;text-align:center;color:var(--mute);border:1.5px dashed var(--line);border-radius:14px}
 dialog{border:2px solid var(--ink);border-radius:20px;padding:0;background:var(--bg);color:var(--ink);width:min(680px,94vw);max-height:90vh}
 dialog::backdrop{background:rgba(10,12,35,.6)}
@@ -68,7 +69,7 @@ footer a{color:var(--ink)}
 <div class="db"><div class="lab">Semester</div><div class="chips" id="sems" style="margin:0"></div><div class="lab">Year</div><div class="yrs" id="yrs"></div>
 <p class="note">Papers open from Delhi University's official site. Links marked “direct” go straight to a PDF.</p></div>
 </dialog>
-<footer><div class="wrap">Made by a DU student, for DU students. Unofficial project; papers belong to the University of Delhi (<a href="https://www.du.ac.in" target="_blank" rel="noopener">du.ac.in</a>). Takedown or paper request? Email <a href="mailto:saurabh.maths.du@gmail.com">saurabh.maths.du@gmail.com</a></div></footer>
+<footer><div class="wrap">Made by a DU student, for DU students. Unofficial project; papers belong to the University of Delhi (<a href="https://www.du.ac.in" target="_blank" rel="noopener">du.ac.in</a>). Takedown or paper request? Email <a href="mailto:YOUR_EMAIL@example.com">YOUR_EMAIL@example.com</a></div></footer>
 
 <script>
 // ---- DATA: add courses here. sems = number of semesters.
@@ -80,6 +81,7 @@ add("Law",6,["LL.B (3-year)"]);
 add("Postgraduate",4,["M.A. English","M.A. Hindi","M.A. History","M.A. Political Science","M.A. Economics","M.A. Sociology","M.Com","M.Sc Physics","M.Sc Chemistry","M.Sc Mathematics","M.Sc Computer Science","M.Sc Statistics","MBA","LL.M"]);
 // ---- Direct links are loaded from papers.json (edit that file, not this one)
 const DIRECT={};
+const COUNT={};
 const YEARS=[2025,2024,2023,2022,2021,2020,2019,2018];
 const LV=["All","Undergraduate","Postgraduate","Law","Professional"];
 let lv="All",cur=null,sem=1;
@@ -90,8 +92,9 @@ function chips(){ $("chips").innerHTML=LV.map(l=>`<button class="chip" aria-pres
 function list(){
   const t=q.value.trim().toLowerCase();
   const r=C.filter(c=>(lv==="All"||c.lv===lv)&&c.n.toLowerCase().includes(t));
+  r.sort((a,b)=>(COUNT[b.n]||0)-(COUNT[a.n]||0));
   $("cnt").textContent=r.length+" courses";
-  grid.innerHTML=r.length?r.map(c=>`<button class="card" data-n="${c.n}"><span class="lv">${c.lv}</span><span class="nm">${c.n}</span><span class="mt">${c.sems} semesters</span></button>`).join(""):`<div class="empty">No course matches “${q.value}”. Try a shorter word, like “Eco”.</div>`;
+  grid.innerHTML=r.length?r.map(c=>`<button class="card" data-n="${c.n}"><span class="lv">${c.lv}</span><span class="nm">${c.n}</span>${COUNT[c.n]?`<span class="mt has">${COUNT[c.n]} ${COUNT[c.n]===1?"paper":"papers"}</span>`:`<span class="mt">Search on DU site</span>`}</button>`).join(""):`<div class="empty">No course matches “${q.value}”. Try a shorter word, like “Eco”.</div>`;
 }
 function link(c,s,y){
   const k=`${c.n}|${s}|${y}`;
@@ -113,7 +116,7 @@ $("dlg").onclick=e=>{if(e.target===$("dlg"))$("dlg").close();};
 q.oninput=list;
 $("tg").onclick=()=>{const r=document.documentElement,d=r.dataset.theme==="dark"||(!r.dataset.theme&&matchMedia("(prefers-color-scheme:dark)").matches);r.dataset.theme=d?"light":"dark";};
 chips();list();
-fetch("papers.json").then(r=>r.json()).then(a=>{a.forEach(p=>{DIRECT[p.course+"|"+p.sem+"|"+p.year]=p.url;});}).catch(()=>{});
+fetch("papers.json").then(r=>r.json()).then(a=>{a.forEach(p=>{DIRECT[p.course+"|"+p.sem+"|"+p.year]=p.url;COUNT[p.course]=(COUNT[p.course]||0)+1;});list();}).catch(()=>{});
 </script>
 </body>
 </html>
